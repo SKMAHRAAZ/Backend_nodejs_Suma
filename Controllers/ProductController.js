@@ -1,4 +1,4 @@
-const { message } = require('prompt')
+
 const Firm = require('../Models/Firm.js')
 const Product = require('../Models/Product.js')
 

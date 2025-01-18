@@ -2,7 +2,7 @@ const Vendor = require('../Models/Vendor')
 const dotenv = require('dotenv')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { message } = require('prompt')
+
 
 dotenv.config()
 
