@@ -20,7 +20,7 @@ mongoose.connect(process.env.Mongo_URI)
     console.log(err)
 })
 
-const PORT = 4000;
+const PORT = process.env.PORT||4000;
 const app = express()
 
 
