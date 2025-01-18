@@ -34,6 +34,12 @@ app.use('/firm', FirmRoute )
 app.use('/product',ProductRoute)
 app.use('/uploads',express.static('uploads'))
 
+
+app.use('/',(req,res)=>{
+    res.send("<h1>Welcome to Suma")
+
+})
+
 app.listen(PORT, ()=>{
     console.log(`server running at ${PORT}`)
 })
