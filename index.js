@@ -3,13 +3,16 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const path = require('path')
+const cors = require('cors')
 
 
 const VendorRoutes = require('./Routes/VendorRoutes')
 const FirmRoute = require('./Routes/FirmRoute')
 const ProductRoute = require('./Routes/ProductRoute')
-
+const app = express()
 dotenv.config()
+
+app.use(cors())
 
 
 mongoose.connect(process.env.Mongo_URI)
@@ -21,7 +24,7 @@ mongoose.connect(process.env.Mongo_URI)
 })
 
 const PORT = process.env.PORT||4000;
-const app = express()
+
 
 
 app.use(express.json())

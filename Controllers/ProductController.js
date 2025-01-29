@@ -1,7 +1,7 @@
 
 const Firm = require('../Models/Firm.js')
 const Product = require('../Models/Product.js')
-
+const path = require("path")
 const multer = require('multer')
 
 const storage = multer.diskStorage({
