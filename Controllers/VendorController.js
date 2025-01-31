@@ -51,8 +51,10 @@ const vendorLogin = async(req,res)=>{
     }
 
     const token  = jwt.sign({vendorId:vendor._id}, secret)
+    const vendorId = vendor._id
+    
 
-    res.status(200).send({message:"login sucessful", token})
+    res.status(200).send({message:"login sucessful", token, vendorId})
 
     } catch (error) {
 
@@ -84,12 +86,19 @@ const  getAllVendors = async(req,res)=>{
 const getSingleVendor = async(req,res)=>{
     try {
 
-        const singleVendor = await Vendor.findById(req.params.id).populate('firm')
+        const vendorId = req.params.id
+
+        const singleVendor = await Vendor.findById(vendorId).populate('firm')
         if(!singleVendor){
             res.status(404).send({message:"no vendor found"})
         }
 
-        return res.status(200).send(singleVendor)
+        const vendorFirmId = singleVendor.firm[0]._id
+        const vendorFirmName = singleVendor.firm[0].firmname
+        console.log(vendorFirmId)
+
+        return res.status(200).json({vendorFirmId, singleVendor, vendorFirmName})
+        
         
     } catch (error) {
         console.log(error)
