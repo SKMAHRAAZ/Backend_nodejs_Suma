@@ -50,7 +50,7 @@ const vendorLogin = async(req,res)=>{
         return res.status(404).send({error:"Invalid user credentials"})
     }
 
-    const token  = jwt.sign({vendorId:vendor._id}, secret)
+    const token  = jwt.sign({vendorId:vendor._id}, secret, {expiresIn:'1hr'})
     const vendorId = vendor._id
     
 
