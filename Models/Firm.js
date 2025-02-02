@@ -27,7 +27,7 @@ const firmSchema = new mongoose.Schema({
 
     },
     image:{
-        type:String
+        type:File
     },
     vendor:[{
         type:mongoose.Schema.Types.ObjectId,
