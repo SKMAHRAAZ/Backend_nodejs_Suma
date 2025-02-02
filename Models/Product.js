@@ -16,7 +16,7 @@ const productSchema = mongoose.Schema({
         }]
     },
     image:{
-        type:String,
+        type:File,
 
     },
     bestSeller:{
